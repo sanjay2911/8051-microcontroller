@@ -21,11 +21,10 @@ You can build and flash this example in two ways:
 
 1.  **From the example directory:**
     ```sh
-    cd uart-hello
-    make flash
+    cmake --build build --target flash-uart-hello
     ```
 
 2.  **From the project root directory:**
     ```sh
-    make flash EXAMPLE=uart-hello
+    cmake --build build --target flash-uart-hello
     ```

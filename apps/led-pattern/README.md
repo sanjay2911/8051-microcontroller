@@ -22,11 +22,10 @@ You can build and flash this example in two ways:
 
 1.  **From the example directory:**
     ```sh
-    cd led-pattern
-    make flash
+    cmake --build build --target flash-led-pattern
     ```
 
 2.  **From the project root directory:**
     ```sh
-    make flash EXAMPLE=led-pattern
+    cmake --build build --target flash-led-pattern
     ```

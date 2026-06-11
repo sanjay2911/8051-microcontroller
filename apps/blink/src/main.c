@@ -1,4 +1,4 @@
-#include <8051.h>
+#include <blink.h>
 
 // --- Function Prototypes ---
 void delay_ms(unsigned int ms);
@@ -7,13 +7,13 @@ void delay_ms(unsigned int ms);
 void main(void) {
     // Set Port 2 to be an output port.
     // With inverted logic, 0xFF means all LEDs are OFF.
-    P2 = 0xFF;
+    LED_PORT = 0xFF;
 
     while(1) {
-        P2 = 0xFE; // Turn ON LED at P2.0 (~0x01)
-        delay_ms(500);
-        P2 = 0xFF; // Turn OFF LED at P2.0
-        delay_ms(500);
+        LED_PORT = 0xFE; // Turn ON LED at P2.0 (~0x01)
+        delay_ms(DELAY);
+        LED_PORT = 0xFF; // Turn OFF LED at P2.0
+        delay_ms(DELAY);
     }
 }
 

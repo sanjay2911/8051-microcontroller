@@ -1,9 +1,8 @@
 #include <8051.h>
-
-#define PWM_PIN P2_0
+#include <pwm.h>
 
 // Global variables for PWM
-unsigned char pwm_width = 100; // Total width of the PWM period (0-255)
+unsigned char pwm_width = PWM_WIDTH; // Total width of the PWM period (0-255)
 volatile unsigned char duty_cycle = 0; // Current duty cycle (0 to pwm_width)
 
 void timer0_init(void);

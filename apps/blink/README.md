@@ -18,11 +18,10 @@ You can build and flash this example in two ways:
 
 1.  **From the example directory:**
     ```sh
-    cd blink
-    make flash
+    cmake --build build --target flash-blink
     ```
 
 2.  **From the project root directory:**
     ```sh
-    make flash EXAMPLE=blink
+    cmake --build build --target flash-blink
     ```

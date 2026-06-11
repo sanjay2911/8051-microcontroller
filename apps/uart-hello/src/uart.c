@@ -1,19 +1,5 @@
 #include <8051.h>
-
-void uart_init(void);
-void uart_transmit_char(char c);
-void uart_transmit_string(const char* str);
-
-void main(void) {
-    uart_init(); // Initialize the UART
-
-    while(1) {
-        uart_transmit_string("Hello World!\r\n");
-        
-        // Simple delay loop
-        for(long i = 0; i < 50000; i++);
-    }
-}
+#include <uart.h>
 
 // Initialize UART for 9600 baud rate at 11.0592MHz crystal
 void uart_init(void) {

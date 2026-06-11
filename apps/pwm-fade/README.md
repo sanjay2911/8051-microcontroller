@@ -22,11 +22,10 @@ You can build and flash this example in two ways:
 
 1.  **From the example directory:**
     ```sh
-    cd pwm-fade
-    make flash
+    cmake --build build --target falsh-pwm-fade
     ```
 
 2.  **From the project root directory:**
     ```sh
-    make flash EXAMPLE=pwm-fade
+    cmake --build build --target falsh-pwm-fade
     ```
