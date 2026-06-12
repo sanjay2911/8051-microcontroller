@@ -1,20 +1,19 @@
-#ifndef UART_H
-#define UART_H
+#ifndef BUTTON_H
+#define BUTTON_H
 
 #include <8052.h>
 
 /*----------------------------------------------------------
- * UART Configuration
+ * Hardware Mapping
  *---------------------------------------------------------*/
-
-#define UART_BAUD_9600_RELOAD    0xFDU
+#define IO_PORT             P0
+#define LED_PIN_MASK        0x01U
+#define BUTTON_PIN_MASK     0x02U
 
 /*----------------------------------------------------------
  * Function Prototypes
  *---------------------------------------------------------*/
 
-void uart_init(void);
-void uart_transmit_char(char c);
-void uart_transmit_string(const char *str);
+unsigned char button_is_pressed(void);
 
-#endif /* UART_H */
+#endif /* BUTTON_H */

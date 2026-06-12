@@ -1,4 +1,4 @@
-#include "blink.h"
+#include "button.h"
 
 /*----------------------------------------------------------
  * Local Function Prototypes
@@ -17,42 +17,36 @@ void main(void)
 
     while (1)
     {
-        led_on();
-        delay_ms(LED_BLINK_DELAY_MS);
-
-        led_off();
-        delay_ms(LED_BLINK_DELAY_MS);
+        if (button_is_pressed())
+        {
+            led_on();
+        }
+        else
+        {
+            led_off();
+        }
     }
 }
 
 /*----------------------------------------------------------
- * LED Control
+ * Button Functions
+ *---------------------------------------------------------*/
+
+unsigned char button_is_pressed(void)
+{
+    return ((IO_PORT & BUTTON_PIN_MASK) == 0U);
+}
+
+/*----------------------------------------------------------
+ * LED Functions
  *---------------------------------------------------------*/
 
 static void led_on(void)
 {
-    P0 |= LED_PIN_MASK;
+    IO_PORT |= LED_PIN_MASK;
 }
 
 static void led_off(void)
 {
-    P0 &= (unsigned char)(~LED_PIN_MASK);
-}
-
-/*----------------------------------------------------------
- * Delay Function
- *---------------------------------------------------------*/
-
-void delay_ms(unsigned int ms)
-{
-    unsigned int i;
-    unsigned int j;
-
-    for (i = 0U; i < ms; i++)
-    {
-        for (j = 0U; j < 120U; j++)
-        {
-            /* Intentional empty loop */
-        }
-    }
+    IO_PORT &= (unsigned char)(~LED_PIN_MASK);
 }

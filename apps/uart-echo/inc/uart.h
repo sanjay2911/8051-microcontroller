@@ -15,6 +15,7 @@
 
 void uart_init(void);
 void uart_transmit_char(char c);
+char uart_receive_char(void);
 void uart_transmit_string(const char *str);
 
 #endif /* UART_H */

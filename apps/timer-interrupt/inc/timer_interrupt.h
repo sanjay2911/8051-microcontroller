@@ -1,20 +1,18 @@
-#ifndef UART_H
-#define UART_H
+#ifndef TIMER_INTERRUPT_H
+#define TIMER_INTERRUPT_H
 
 #include <8052.h>
 
 /*----------------------------------------------------------
- * UART Configuration
+ * Hardware Mapping
  *---------------------------------------------------------*/
 
-#define UART_BAUD_9600_RELOAD    0xFDU
+#define LED_PIN_MASK   0x01U
 
 /*----------------------------------------------------------
  * Function Prototypes
  *---------------------------------------------------------*/
 
-void uart_init(void);
-void uart_transmit_char(char c);
-void uart_transmit_string(const char *str);
+void timer0_init(void);
 
-#endif /* UART_H */
+#endif /* TIMER_INTERRUPT_H */

@@ -1,7 +1,11 @@
-#ifndef __PWM_H
-#define __PWM_H
+#ifndef PWM_H
+#define PWM_H
 
-#define PWM_PIN   P2_0
-#define PWM_WIDTH (100) // Total width of the PWM period (0-255)
+#include <8052.h>
 
-#endif //__PWM_H
+#define PWM_PIN P0_0
+void pwm_init(void);
+void pwm_set_duty(unsigned char duty);
+void timer0_isr(void) __interrupt(1);
+
+#endif

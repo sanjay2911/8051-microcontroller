@@ -26,9 +26,10 @@ endfunction()
 function(add_flash_target target_name)
     add_custom_target(
         flash-${target_name}
-        COMMAND ${AVR_PROGRAMMER} -c usbasp -p at89s52 -C ${CMAKE_CURRENT_SOURCE_DIR}/../../config/avrdude.conf -U flash:w:${target_name}.hex
+        COMMAND ${AVR_PROGRAMMER} -c usbasp -p at89s52 -C ${CMAKE_CURRENT_SOURCE_DIR}/../../config/avrdude.conf -U flash:w:${CMAKE_BINARY_DIR}/out/${target_name}.hex -F
         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
         DEPENDS ${target_name}
+        USES_TERMINAL
     )
 endfunction()
 

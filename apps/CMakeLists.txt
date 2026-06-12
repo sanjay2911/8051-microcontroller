@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.20)
 
+if(NOT PROJECT_NAME)
+    set(CMAKE_TOOLCHAIN_FILE ../config/sdcc-toolchain.cmake)
+    project(build_all LANGUAGES C)
+endif()
+
 # 1. Gather all items while enabling build system auto-refresh
 file(GLOB children CONFIGURE_DEPENDS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" *)
 
