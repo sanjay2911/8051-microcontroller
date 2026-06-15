@@ -37,6 +37,18 @@ void uart_transmit_char(char c)
     TI = 0U;
 }
 
+// To add support of printf
+int putchar(int c)
+{
+    SBUF = c;
+
+    while (!TI);
+
+    TI = 0;
+
+    return c;
+}
+
 /*----------------------------------------------------------
  * UART Transmit String
  *---------------------------------------------------------*/
